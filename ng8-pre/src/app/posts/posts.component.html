@@ -1,0 +1,11 @@
+<button mat-flat-button color="warn" class="buttonCrearEventoPost" routerLink="/createPost">Crear Empleado</button>
+
+<mat-grid-list cols="4" rowHeight="600px" class="gridEventoPost">
+    <mat-grid-tile *ngFor="let post of this.data.posts">
+        <mat-card class="example-card">
+          <mat-list-item>>{{event.title}}</mat-list-item>
+          <mat-divider></mat-divider>
+          <button class='boton-verPost' mat-flat-button color="primary" *ngIf="isLoggedIn()" [routerLink]="['/posts/',post._id]">Ver Post</button>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>

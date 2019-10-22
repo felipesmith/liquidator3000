@@ -1,0 +1,10 @@
+<mat-list class="container">
+    <div *ngFor="let user of this.data.user">
+        <mat-list-item> Nombre:   {{ user.name }} </mat-list-item>
+        <mat-list-item> Apellido: {{ user.surname }} </mat-list-item>
+        <mat-list-item> Género:   {{ user.gender }} </mat-list-item>
+        <mat-list-item> Edad:     {{ user.age }} </mat-list-item>
+        <mat-list-item> Mail:     {{ user.username }} </mat-list-item>
+        <mat-list-item> Locación: {{ user.location }} </mat-list-item>
+    </div>
+</mat-list>

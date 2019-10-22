@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" />
+<header>
+    <div class="container">
+        <a routerLink="/" class="logo">{{appTitle}}</a>
+        <nav>
+            <ul>
+                <li><a routerLink="/">Inicio</a></li>
+                <li><a routerLink="/events" (click)="getAllEvents()">Eventos</a></li>
+                <li><a routerLink="/posts" (click)="getAllPosts()">Publicaciones</a></li>
+                <li><a routerLink="/about">Nosotros</a></li>
+                <li><a routerLink="/contact">Contacto</a></li>
+
+                <li><button mat-flat-button color="primary" class="buttonSignUpLogin" *ngIf="!isLoggedIn()" (click)="signUp()">SIGN UP</button></li>
+                <li><button mat-flat-button class="buttonSignUpLogin" *ngIf="!isLoggedIn()" (click)="login()">LOGIN</button></li>
+                <li><button mat-flat-button class="buttonSignUpLogin" *ngIf="isLoggedIn()" (click)="logOut()" routerLink="/">LOG OUT</button></li>
+                <li><button mat-flat-button class="buttonSignUpLogin" *ngIf="isLoggedIn()" (click)="myStatistics()" routerLink="/statistics">Mis Estadísticas</button></li>
+            </ul>
+        </nav>
+    </div>
+</header>

@@ -1,0 +1,13 @@
+<div mat-dialog-content class="contenido-dialog">
+    <p>Login</p>
+    <mat-form-field style="width:100%;">
+        <input matInput [(ngModel)]="data.username" placeholder="Mail" >
+    </mat-form-field>
+    <mat-form-field style="width:100%;">
+        <input matInput [(ngModel)]="data.password" placeholder="Contraseña">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="true">No Thanks</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</div>

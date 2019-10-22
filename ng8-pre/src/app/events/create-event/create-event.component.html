@@ -1,0 +1,43 @@
+<div class="example-container">
+    <mat-form-field>
+        <input matInput [(ngModel)]="title" placeholder="Título"  required>
+        <!--<mat-error *ngIf="data2.title.invalid">{{getErrorMessageTitulo()}}</mat-error>-->
+    </mat-form-field>
+
+    <mat-form-field>
+        <textarea matInput [(ngModel)]="description" placeholder="Descripción"  required></textarea>
+        <!--<mat-error *ngIf="data2.description.invalid">{{getErrorMessageDescripcion()}}</mat-error>-->
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput [(ngModel)]="location" placeholder="Ubicación"  required>
+        <!--<mat-error *ngIf="data2.location.invalid">{{getErrorMessageLocation()}}</mat-error>-->
+    </mat-form-field>
+
+    <!--<mat-form-field>
+      <input matInput [(ngModel)]="data.password" [matDatepicker]="myDatepicker" placeholder="Fecha"  required>
+      <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+      <mat-datepicker #myDatepicker></mat-datepicker>
+      <mat-error *ngIf="date.invalid">{{getErrorMessageDate()}}</mat-error>
+    </mat-form-field>
+
+    <!--Este es momentanio-->
+    <mat-form-field>
+        <input matInput [(ngModel)]="type" placeholder="Tipo de Evento"  required>
+        <!--<mat-error *ngIf="data2.type.invalid">{{getErrorMessageTipo()}}</mat-error>-->
+    </mat-form-field>
+<!--
+    <mat-form-field>
+        <mat-select placeholder="Seleccionar Tipo" [formControl]="type"  required>
+            <mat-option value="option">Actividad</mat-option>
+            <mat-option value="option">Conferencia</mat-option>
+            <mat-option value="option">Plogging</mat-option>
+            <mat-option value="option">Otra</mat-option>
+        </mat-select>
+        <mat-error *ngIf="type.invalid">{{getErrorMessageTipo()}}</mat-error>
+    </mat-form-field>
+    -->
+</div>
+<div>
+    <button mat-flat-button color="warn" class="buttonCrearEventoPost" (click)="createEvent()">Crear Evento</button>
+</div>

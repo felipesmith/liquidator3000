@@ -1,0 +1,10 @@
+<mat-list class="container">
+    <div *ngFor="let event of this.data.event">
+        <mat-list-item> Titulo:   {{ event.title }} </mat-list-item>
+        <mat-list-item> Descripcion:   {{ event.description }} </mat-list-item>
+        <mat-list-item> location:   {{ event.location }} </mat-list-item>
+        <mat-list-item> score:   {{ event.score }} </mat-list-item>
+        <mat-list-item> type:   {{ event.type }} </mat-list-item>
+    </div>
+</mat-list>
+

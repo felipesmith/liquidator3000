@@ -1,0 +1,42 @@
+header {
+    background: #054b34;
+    .logo {
+        font-weight: bold;
+        align-self: center;
+    }
+    nav {
+        justify-self: right;
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            li {
+                float: left;
+                a {
+                    padding: 1.5em;
+                    text-transform: uppercase;
+                    font-size: .8em;
+                    &:hover {
+                        background: #006b3c;
+                    }
+                }
+                .buttonSignUpLogin {
+                    margin-left: 10px
+                }
+            }
+        }
+    }
+}
+
+.container a{
+  vertical-align: -webkit-baseline-middle;
+}
+
+.spinner-margin {
+    margin-left: 25px;
+}
+
+
+.mat-form-field-infix {
+  width: 100%;
+}

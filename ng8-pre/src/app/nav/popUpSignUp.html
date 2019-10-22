@@ -1,0 +1,33 @@
+<div mat-dialog-content class="contenido-dialog">
+    <p>Registrarse</p>
+    <mat-form-field style="width:100%;">
+        <input matInput [(ngModel)]="data.username" placeholder="CUIT">
+    </mat-form-field>
+    <mat-form-field style="width:100%;">
+        <input matInput [(ngModel)]="data.password" placeholder="Contraseña" type="password">
+    </mat-form-field>
+    <mat-form-field style="width:100%;">
+        <input matInput [(ngModel)]="data.name" placeholder="Razon Social">
+    </mat-form-field>
+    <mat-form-field style="width:100%;">
+      <mat-label>Tipo de cliente</mat-label>
+      <select matNativeControl matInput [(ngModel)]="data.type" required>
+        <option value="1">Persona Fisica</option>
+        <option value="0">Persona Jurídica</option>
+      </select>
+      </mat-form-field>
+      <!--<mat-form-field style="width:100%;">
+        <input matInput [(ngModel)]="data.adress" placeholder="Direccion">
+    </mat-form-field>-->
+    <mat-form-field style="width:100%;">
+        <input matInput [(ngModel)]="data.antiguedad" placeholder="Monto Por Antiguedad">
+    </mat-form-field>
+    <mat-form-field style="width:100%;">
+        <input matInput [(ngModel)]="data.presentismo" placeholder="Monto Por Presentismo">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="true">No Thanks</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+    <!-- ObjectId _id, String cuit, String nombre, boolean fisico, array empleados_id, array conceptos, String password, array liquidaciones-->
+</div>

@@ -1,0 +1,43 @@
+<div class="example-container">
+    <mat-form-field>
+        <input matInput [(ngModel)]="dni" placeholder="DNI"  required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <textarea matInput [(ngModel)]="name" placeholder="Nombre"  required></textarea>
+        <!--<mat-error *ngIf="data2.description.invalid">{{getErrorMessageDescripcion()}}</mat-error>-->
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput [(ngModel)]="surname" placeholder="Apellido"  required>
+        <!--<mat-error *ngIf="data2.location.invalid">{{getErrorMessageLocation()}}</mat-error>-->
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput [(ngModel)]="adress" placeholder="Direccion"  required>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput [(ngModel)]="puesto" placeholder="Puesto"  required>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput [(ngModel)]="family" placeholder="Familia a Cargo?"  required>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput [(ngModel)]="date" placeholder="Fecha de Ingreso"  required>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput [(ngModel)]="salary" placeholder="Sueldo Base"  required>
+    </mat-form-field>
+    <mat-form-field style="width:100%;">
+      <mat-label>Tipo de liquidacion</mat-label>
+      <select matNativeControl matInput [(ngModel)]="data.billing" required>
+        <option value="diaria">Diaria</option>
+        <option value="semanal">Semanal</option>
+        <option value="Quincenal">Quincenal</option>
+        <option value="Mensual">Mensual</option>
+      </select>
+      </mat-form-field>
+
+</div>
+<div>
+    <button mat-flat-button color="warn" class="buttonCrearEventoPost" (click)="createEvent()">Crear Evento</button>
+</div>
