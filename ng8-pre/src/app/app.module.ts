@@ -23,17 +23,18 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatListModule} from '@angular/material/list';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 
 import {MatNativeDateModule} from '@angular/material/core';
 
-
+import {DialogOverviewExampleDialog} from './posts/create-post/create-post.component';
 import {popUpSignUp} from '../app/nav/nav.component';
 
 //CSS STYLES
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { CreateEventComponent } from './events/create-event/create-event.component';
-//import { CreatePostComponent } from './posts/create-post/create-post.component';
+import { CreateEmployeeComponent } from './posts/create-post/create-post.component';
 import { MystatisticsComponent } from './mystatistics/mystatistics.component';
 import { EventDetailsComponent } from './events/event-details/event-details.component';
 import { PostDetailsComponent } from './posts/post-details/post-details.component';
@@ -50,9 +51,10 @@ import { PostDetailsComponent } from './posts/post-details/post-details.componen
     PostsComponent,
     EventsComponent,
     CreateEventComponent,
-  //  CreatePostComponent,
+    CreateEmployeeComponent,
     popUpSignUp,
     popUpLogin,
+    DialogOverviewExampleDialog,
     MystatisticsComponent,
     EventDetailsComponent,
     PostDetailsComponent
@@ -91,6 +93,6 @@ import { PostDetailsComponent } from './posts/post-details/post-details.componen
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [NavComponent, popUpSignUp,popUpLogin],
+  entryComponents: [NavComponent, popUpSignUp,popUpLogin, DialogOverviewExampleDialog ],
 })
 export class AppModule { }

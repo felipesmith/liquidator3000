@@ -98,7 +98,6 @@ export class NavComponent implements OnInit {
                 this.concepto.push(concepto2);
                 var concepto2 = {nombre:'Presentismo', valor:result.presentismo}
                 this.concepto.push(concepto2);
-
                 //HACE EL POST
                 this.data.signUp(this.username, this.password, this.name, this.type, this.concepto);
 

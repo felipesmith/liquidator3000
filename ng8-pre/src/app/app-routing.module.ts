@@ -6,7 +6,7 @@ import { EventsComponent }        from './events/events.component';
 import { AboutComponent }         from './about/about.component';
 import { ContactComponent }       from './contact/contact.component';
 import { CreateEventComponent}    from './events/create-event/create-event.component';
-//import { CreatePostComponent }    from './posts/create-post/create-post.component';
+import { CreateEmployeeComponent }    from './posts/create-post/create-post.component';
 import { MystatisticsComponent }  from './mystatistics/mystatistics.component';
 import { EventDetailsComponent }  from './events/event-details/event-details.component';
 import { PostDetailsComponent }  from './posts/post-details/post-details.component';
@@ -20,7 +20,7 @@ const routes: Routes = [
   {path: 'about',           component: AboutComponent },
   {path: 'contact',         component: ContactComponent },
   {path: 'createEvent',     component: CreateEventComponent },
-  //{path: 'createPost',      component: CreatePostComponent },
+  {path: 'createPost',      component: CreateEmployeeComponent },
   {path: 'statistics',      component: MystatisticsComponent}
 ];
 

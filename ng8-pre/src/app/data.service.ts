@@ -30,10 +30,10 @@ export class DataService {
 
   //**** POSTS (POSTS DE GET/POST) ****//
   postNuevoUsuario = {
-    username: '',
+    cuit: '',
     password: '',
-    name: '',
-    type: false,
+    nombre: '',
+    fisico: false,
     concepto: [{
       nombre:'',
       valor: 0
@@ -41,11 +41,15 @@ export class DataService {
   };
 
   postNuevoEvento ={
-    title:'',
-    description:'',
-    location:'',
-    owner: '',
-    type:'',
+    dni:'',
+    nombre:'',
+    direccion:'',
+    puesto:'',
+    fechaIngreso: {},
+    cuit:'',
+    tipoLiquidacion: '',
+    tipo: '',
+    monto: 0
   };
 
   postNuevoPost ={
@@ -56,13 +60,13 @@ export class DataService {
   };
 
   postLogin ={
-    username: '',
+    cuit: '',
     password: '',
   };
 
   //URLS
-  urlCreate = 'http://pinamar-api.herokuapp.com/clientes';
-  urlLogin = 'https://green-mind.herokuapp.com/users/login';
+  urlCreate = 'http://pinamar-api.herokuapp.com/clientes/';
+  urlLogin = 'http://pinamar-api.herokuapp.com/clientes/login/'
 
   constructor(private http: HttpClient) { }
 
@@ -70,37 +74,46 @@ export class DataService {
   //**** POSTS *****//
 
   signUp(username:string, password:string, name:string, type:boolean, concepto: Array<any> ) {
-    this.postNuevoUsuario.username = username;
+    this.postNuevoUsuario.cuit = username;
     this.postNuevoUsuario.password = password;
-    this.postNuevoUsuario.name = name;
-    this.postNuevoUsuario.type = type;
+    this.postNuevoUsuario.nombre = name;
+    this.postNuevoUsuario.fisico = type;
     this.postNuevoUsuario.concepto = concepto;
+    this.username = username;
+    console.log(this.postNuevoUsuario);
     this.http.post(this.urlCreate, this.postNuevoUsuario).toPromise().then(response => {
       console.log(response)
     });
   }
 
   login(username:string, password:string) {
-
-    this.postLogin.username = username;
+     var  urlLogin = this.urlLogin+username+'/'+password;
+    this.postLogin.cuit = username;
     this.postLogin.password = password;
+    console.log(this.postLogin.cuit,this.postLogin.password);
     //NECESITA UN INTERFACE PARA INTERPRETAR LA RESPUESTA
-    this.http.post<UserPostResponse>(this.urlLogin, this.postLogin).toPromise().then(response => {
-      console.log(response.User);
-      this.isloggin = response.User;
-      this.username = username;
-    });
 
+    let obs = this.http.get(urlLogin);
+    return obs.subscribe((response) => {
+      console.log(response);
+      this.isloggin = response;
+      this.username = username;
+      console.log(this.isloggin)
+    });
   }
 
-  createEvent(title:string, description:string, location: string,  type:string, owner:string) {
+  createEmployee(dni:string, nombre:string, direccion: string,  puesto:string, fechaIngreso:Date, tipoLiquidacion:string, tipo:string, monto:number) {
 
-    let url = 'https://green-mind.herokuapp.com/events/create';
-    this.postNuevoEvento.title = title;
-    this.postNuevoEvento.description = description;
-    this.postNuevoEvento.location = location;
-    this.postNuevoEvento.owner = owner;
-    this.postNuevoEvento.type = type;
+    let url = 'http://pinamar-api.herokuapp.com/clientes/empleados/'+tipo+'/'+monto+'/'+this.username;
+    this.postNuevoEvento.dni = dni;
+    this.postNuevoEvento.nombre = nombre;
+    this.postNuevoEvento.direccion = direccion;
+    this.postNuevoEvento.puesto = puesto;
+    this.postNuevoEvento.fechaIngreso = fechaIngreso;
+    this.postNuevoEvento.tipoLiquidacion = tipoLiquidacion;
+    this.postNuevoEvento.tipo = tipo;
+    this.postNuevoEvento.monto = monto;
+    this.postNuevoEvento.cuit = this.username;
     console.log(this.postNuevoEvento);
     this.http.post(url, this.postNuevoEvento).toPromise().then(response => {
       console.log(response);
@@ -139,7 +152,7 @@ export class DataService {
   }
 
   getAllEvents(){
-    let obs = this.http.get('https://green-mind.herokuapp.com/events/all/');
+    let obs = this.http.get('http://pinamar-api.herokuapp.com/clientes/');
     return obs.subscribe((response) => {
       this.events = response;
       console.log(this.events)
@@ -147,7 +160,7 @@ export class DataService {
   }
 
   getAllPosts(){
-    let obs = this.http.get('https://green-mind.herokuapp.com/posts/all/');
+    let obs = this.http.get('http://pinamar-api.herokuapp.com/clientes/empleados-cliente/'+ this.username);
     return obs.subscribe((response) => {
       this.posts = response;
       console.log(this.posts)
