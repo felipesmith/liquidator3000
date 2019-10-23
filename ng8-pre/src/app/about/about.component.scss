@@ -5,3 +5,35 @@
 .container{
   text-align-last: center;
 }
+
+.detalle{
+  width: 80%;
+  margin:10px auto;
+}
+
+.title{
+  text-align: center;
+}
+
+.firstDivider{
+  margin-bottom: 10px;
+}
+
+ul{
+  text-decoration:none;
+  list-style-type:none;
+  display:flex;
+}
+
+li{
+  margin:auto;
+}
+
+.tableHeader{
+  margin: 0 auto;
+  font-weight: bold;
+}
+
+.data{
+  padding: 0;
+}

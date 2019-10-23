@@ -1,9 +1,55 @@
 <mat-card  class="container">
     <button mat-flat-button class="buttonLiquidar" color='primary' (click)="liquidar()">Liquidar</button>
 </mat-card>
-<ul *ngIf="data.liquidaciones">
+<mat-card class="detalle">
+<p class="title">Detalle</p>
+<mat-divider class="firstDivider"></mat-divider>
+<!---<ul *ngIf="data.liquidaciones">
   <li *ngFor="let liquidacion of data.liquidaciones">
-    <p *ngFor="let recibo of liquidacion.recibos"></p>
-    <p>{{recibo.sueldoNeto}}</p>
+    <p>{{liquidacion.tipo}}</p>
+    <ul *ngFor="let recibo of liquidacion.recibos">
+      <li>{{recibo.sueldoNeto}}</li>
+    </ul>
+    <mat-divider></mat-divider>
   </li>
-</ul>
+</ul>-->
+
+<div class="" *ngIf="data.liquidaciones">
+  <div  *ngFor="let liquidacion of data.liquidaciones">
+    <mat-card>
+      <ul>
+        <li><p class="tableHeader">Cliente</p></li>
+        <li><p class="tableHeader">Tipo</p></li>
+        <li><p class="tableHeader">Fecha</p></li>
+        <li><p class="tableHeader">Total</p></li>
+      </ul>
+    </mat-card>
+    <mat-card>
+      <ul class="data">
+        <li>{{liquidacion.id}}</li>
+        <li>{{liquidacion.tipo}}</li>
+        <li>{{liquidacion.fecha | date:'dd/MM/yyyy'}}</li>
+        <li><b>{{liquidacion.total}}</b></li>
+      </ul>
+    </mat-card>
+    <br>
+    <br>
+    <table>
+      <thead>
+        <tr>
+          <td>EMPLEADO</td>
+          <td>CBU</td>
+          <td>NETO</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let recibo of liquidacion.recibos">
+          <td>empleado</td>
+          <td>{{recibo.id}}</td>
+          <td>{{recibo.sueldoNeto}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</mat-card>
