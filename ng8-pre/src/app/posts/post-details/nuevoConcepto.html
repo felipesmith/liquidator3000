@@ -1,0 +1,16 @@
+<div mat-dialog-content class="contenido-dialog">
+    <p>Nuevo Concepto</p>
+    <mat-form-field style="width:100%;">
+        <input matInput [(ngModel)]="data.nombre" placeholder="Nombre" >
+    </mat-form-field>
+    <mat-form-field style="width:100%;">
+        <input matInput [(ngModel)]="data.valor" placeholder="Valor">
+    </mat-form-field>
+    <mat-form-field style="width:100%;">
+        <input matInput [(ngModel)]="data.tipo" placeholder="Tipo">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="true">Cancel</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Confirm</button>
+</div>

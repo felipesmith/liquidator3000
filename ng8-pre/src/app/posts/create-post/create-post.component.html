@@ -3,6 +3,9 @@
         <input matInput [(ngModel)]="dni" placeholder="DNI"  required>
     </mat-form-field>
     <mat-form-field>
+        <input matInput [(ngModel)]="cbu" placeholder="CBU"  required>
+    </mat-form-field>
+    <mat-form-field>
         <input matInput [(ngModel)]="name" placeholder="Nombre y Apellido"  required>
     </mat-form-field>
     <mat-form-field>
@@ -35,6 +38,57 @@
     <mat-form-field>
         <input matInput [(ngModel)]="salary" placeholder="Monto"  required>
     </mat-form-field>
+    <mat-form-field >
+        <input matInput [(ngModel)]="antiguedad" placeholder="Monto Por Antiguedad (%)">
+    </mat-form-field>
+    <mat-form-field >
+      <mat-label>Tipo de concepto</mat-label>
+      <select matNativeControl matInput [(ngModel)]="antiguedadtipo" required>
+        <option value="deduccion">Deduccion</option>
+        <option value="bonificacion">Bonificacion</option>
+      </select>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput [(ngModel)]="presentismo" placeholder="Monto Por Presentismo (%)">
+    </mat-form-field>
+    <mat-form-field >
+      <mat-label>Tipo de concepto</mat-label>
+      <select matNativeControl matInput [(ngModel)]="presentismotipo" required>
+        <option value="deduccion">Deduccion</option>
+        <option value="bonificacion">Bonificacion</option>
+      </select>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput [(ngModel)]="jubilacion" placeholder="Monto Por Jubilacion (%)">
+    </mat-form-field>
+    <mat-form-field >
+      <mat-label>Tipo de concepto</mat-label>
+      <select matNativeControl matInput [(ngModel)]="jubilaciontipo" required>
+        <option value="deduccion">Deduccion</option>
+        <option value="bonificacion">Bonificacion</option>
+      </select>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput [(ngModel)]="os" placeholder="Monto Por Obra Social (%)">
+    </mat-form-field>
+    <mat-form-field >
+      <mat-label>Tipo de concepto</mat-label>
+      <select matNativeControl matInput [(ngModel)]="ostipo" required>
+        <option value="deduccion">Deduccion</option>
+        <option value="bonificacion">Bonificacion</option>
+      </select>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput [(ngModel)]="pami" placeholder="Monto Por PAMI (%)">
+    </mat-form-field>
+    <mat-form-field >
+      <mat-label>Tipo de concepto</mat-label>
+      <select matNativeControl matInput [(ngModel)]="pamitipo" required>
+        <option value="deduccion">Deduccion</option>
+        <option value="bonificacion">Bonificacion</option>
+      </select>
+    </mat-form-field>
+
 
 </div>
 <div>

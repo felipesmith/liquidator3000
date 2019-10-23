@@ -20,6 +20,7 @@ export class CreateEmployeeComponent implements OnInit {
   tipo         = new FormControl('', [Validators.required]);*/
 
   dni:string;
+  cbu: string;
   name:string;
   adress:string;
   puesto:string;
@@ -27,6 +28,21 @@ export class CreateEmployeeComponent implements OnInit {
   billing: string;
   payroll: string;
   salary: number;
+  antiguedad:number;
+  antiguedadtipo: string;
+  presentismo:number;
+  presentismotipo: string;
+  jubilacion:number;
+  jubilaciontipo: string;
+  os:number;
+  ostipo: string;
+  pami:number;
+  pamitipo: string;
+  concepto:[{
+    nombre:string;
+    valor: number;
+    tipo: string;
+  }] = [];
 
 
 
@@ -51,7 +67,18 @@ export class CreateEmployeeComponent implements OnInit {
 // FUNCIONES //
   createEmployee() {
     console.log(this.billing, this.payroll);
-    return this.data.createEmployee(this.dni,this.name, this.adress, this.puesto,this.date, this.billing, this.payroll, this.salary);
+    var concepto2 = {nombre:'Antiguedad', valor:this.antiguedad, tipo:this.antiguedadtipo};
+    this.concepto.push(concepto2);
+    var concepto2 = {nombre:'Presentismo', valor:this.presentismo, tipo:this.presentismotipo};
+    this.concepto.push(concepto2);
+    var concepto2 = {nombre:'Jubilacion', valor:this.jubilacion, tipo:this.jubilaciontipo};
+    this.concepto.push(concepto2);
+    var concepto2 = {nombre:'Obra Social', valor:this.os, tipo:this.ostipo};
+    this.concepto.push(concepto2);
+    var concepto2 = {nombre:'PAMI', valor:this.pami, tipo:this.pamitipo};
+    this.concepto.push(concepto2);
+    console.log(this.concepto);
+    return this.data.createEmployee(this.dni,this.cbu, this.name, this.adress, this.puesto,this.date, this.billing, this.payroll,this.salary, this.concepto);
   }
 
 }

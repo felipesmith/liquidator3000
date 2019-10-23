@@ -34,10 +34,10 @@ import {popUpSignUp} from '../app/nav/nav.component';
 //CSS STYLES
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { CreateEventComponent } from './events/create-event/create-event.component';
-import { CreateEmployeeComponent } from './posts/create-post/create-post.component';
+import { CreateEmployeeComponent} from './posts/create-post/create-post.component';
 import { MystatisticsComponent } from './mystatistics/mystatistics.component';
 import { EventDetailsComponent } from './events/event-details/event-details.component';
-import { PostDetailsComponent } from './posts/post-details/post-details.component';
+import { PostDetailsComponent, novedad, nuevoConcepto } from './posts/post-details/post-details.component';
 
 
 
@@ -54,6 +54,8 @@ import { PostDetailsComponent } from './posts/post-details/post-details.componen
     CreateEmployeeComponent,
     popUpSignUp,
     popUpLogin,
+    novedad,
+    nuevoConcepto,
     DialogOverviewExampleDialog,
     MystatisticsComponent,
     EventDetailsComponent,
@@ -93,6 +95,6 @@ import { PostDetailsComponent } from './posts/post-details/post-details.componen
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [NavComponent, popUpSignUp,popUpLogin, DialogOverviewExampleDialog ],
+  entryComponents: [NavComponent, popUpSignUp,popUpLogin,novedad, nuevoConcepto, DialogOverviewExampleDialog ],
 })
 export class AppModule { }

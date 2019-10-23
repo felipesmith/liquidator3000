@@ -1,1 +1,21 @@
-<p>post-details works!</p>
+<mat-card  class="container">
+<mat-list>
+    <div >
+        <mat-list-item> DNI:   {{ this.data.employee.dni }} </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item> CBU:   {{ this.data.employee.cbu }} </mat-list-item>
+        <mat-divider></mat-divider>
+        <div *ngFor="let concepto of this.data.employee.conceptos">
+          <mat-list-item> Nombre:   {{ concepto.nombre }} </mat-list-item>
+          <mat-list-item> Valor:   {{ concepto.valor }} </mat-list-item>
+          <mat-list-item> Tipo:   {{ concepto.tipo }} </mat-list-item>
+          <mat-divider></mat-divider>
+        </div>
+        <div class="buttons">
+            <button mat-raised-button color="primary" (click)="addConcepto()">Crear Concepto</button>
+            <button mat-raised-button color="primary" (click)="addNovedad()">Crear Novedad</button>
+        </div>
+    </div>
+</mat-list>
+
+</mat-card>

@@ -16,18 +16,19 @@
         <option value="false">Persona Jurídica</option>
       </select>
       </mat-form-field>
+      <mat-form-field>
+          <input matInput [(ngModel)]="data.antiguedad" placeholder="Monto Por Antiguedad">
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput [(ngModel)]="data.presentismo" placeholder="Monto Por Presentismo">
+      </mat-form-field>
       <!--<mat-form-field style="width:100%;">
         <input matInput [(ngModel)]="data.adress" placeholder="Direccion">
     </mat-form-field>-->
-    <mat-form-field style="width:100%;">
-        <input matInput [(ngModel)]="data.antiguedad" placeholder="Monto Por Antiguedad">
-    </mat-form-field>
-    <mat-form-field style="width:100%;">
-        <input matInput [(ngModel)]="data.presentismo" placeholder="Monto Por Presentismo">
-    </mat-form-field>
+
 </div>
 <div mat-dialog-actions>
-    <button mat-button [mat-dialog-close]="true">No Thanks</button>
+    <button mat-button [mat-dialog-close]="true">Cancel</button>
     <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
     <!-- ObjectId _id, String cuit, String nombre, boolean fisico, array empleados_id, array conceptos, String password, array liquidaciones-->
 </div>
