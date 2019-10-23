@@ -5,7 +5,9 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 import { Inject } from '@angular/core';
 
 export interface DialogData {
-  name: string;
+  nombre: string;
+  valor:number;
+  tipo:string;
 }
 
 
@@ -39,11 +41,10 @@ export class PostDetailsComponent implements OnInit {
 
         //DESPUES DE CERRARSE GUARDA LA DATA
         dialogRefLogin.afterClosed().subscribe(result => {
-          this.nombre = result.nombre;
-          this.valor = result.valor;
-          this.tipo = result.tipo;
+          let concepto = {nombre: result.nombre, valor: result.valor, tipo: result.tipo};
+          console.log(concepto);
           //HACE EL POST
-          this.data.addConcepto(this.nombre, this.valor, this.tipo);
+          this.data.addConcepto(concepto);
 
         });
   }

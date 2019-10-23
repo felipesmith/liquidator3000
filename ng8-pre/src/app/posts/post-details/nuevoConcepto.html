@@ -1,13 +1,17 @@
 <div mat-dialog-content class="contenido-dialog">
     <p>Nuevo Concepto</p>
     <mat-form-field style="width:100%;">
-        <input matInput [(ngModel)]="data.nombre" placeholder="Nombre" >
+        <input matInput [(ngModel)]="data.nombre" placeholder="Nombre" required>
     </mat-form-field>
     <mat-form-field style="width:100%;">
-        <input matInput [(ngModel)]="data.valor" placeholder="Valor">
+        <input matInput [(ngModel)]="data.valor" placeholder="Valor" required>
     </mat-form-field>
-    <mat-form-field style="width:100%;">
-        <input matInput [(ngModel)]="data.tipo" placeholder="Tipo">
+    <mat-form-field  style="width:100%;">
+      <mat-label>Tipo de concepto</mat-label>
+      <select matNativeControl matInput [(ngModel)]="data.tipo" required>
+        <option value="bonificacion">Bonificacion</option>
+        <option value="deduccion">Deduccion</option>
+      </select>
     </mat-form-field>
 </div>
 <div mat-dialog-actions>
