@@ -16,11 +16,17 @@
         <option value="false">Persona Jurídica</option>
       </select>
       </mat-form-field>
-      <mat-form-field>
-          <input matInput [(ngModel)]="data.antiguedad" placeholder="Monto Por Antiguedad">
+      <mat-form-field style="width:100%;">
+          <input matInput [(ngModel)]="data.diaMesLiquidacionMensual" placeholder="Dia de liquidacion mensual">
       </mat-form-field>
-      <mat-form-field>
-          <input matInput [(ngModel)]="data.presentismo" placeholder="Monto Por Presentismo">
+      <mat-form-field style="width:100%;">
+          <input matInput [(ngModel)]="data.diaPrimerQuincena" placeholder="Dia de liquidacion primer quincena">
+      </mat-form-field>
+      <mat-form-field style="width:100%;">
+          <input matInput [(ngModel)]="data.diaSegundaQuincena" placeholder="Dia de liquidacion segunda quincena">
+      </mat-form-field>
+      <mat-form-field style="width:100%;">
+          <input matInput [(ngModel)]="data.diaSemana" placeholder="Dia de liquidacion semanal">
       </mat-form-field>
       <!--<mat-form-field style="width:100%;">
         <input matInput [(ngModel)]="data.adress" placeholder="Direccion">

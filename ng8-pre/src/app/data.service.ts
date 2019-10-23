@@ -33,7 +33,12 @@ export class DataService {
     cuit: '',
     password: '',
     nombre: '',
-    fisico: false
+    fisico: false,
+    diaMesLiquidacionMensual:0,
+    diaPrimerQuincena:0,
+    diaSegundaQuincena:0,
+    diaSemana  :''
+
   };
 
   postNuevoEvento ={
@@ -54,6 +59,9 @@ export class DataService {
     }]
 
   };
+
+  concepto:any;
+  novedad:any;
 
   postNuevoPost ={
     title:'',
@@ -76,12 +84,16 @@ export class DataService {
 
   //**** POSTS *****//
 
-  signUp(username:string, password:string, name:string, type:boolean ) {
+  signUp(username:string, password:string, name:string, type:boolean,diaMesLiquidacionMensual:number, diaPrimerQuincena:number,diaSegundaQuincena:number,diaSemana:sting  ) {
     this.postNuevoUsuario.cuit = username;
     this.postNuevoUsuario.password = password;
     this.postNuevoUsuario.nombre = name;
     this.postNuevoUsuario.fisico = type;
     //this.postNuevoUsuario.concepto = concepto;
+    this.postNuevoUsuario.diaMesLiquidacionMensual = diaMesLiquidacionMensual;
+    this.postNuevoUsuario.diaPrimerQuincena = diaPrimerQuincena;
+    this.postNuevoUsuario.diaSegundaQuincena = diaSegundaQuincena;
+    this.postNuevoUsuario.diaSemana = diaSemana;
     this.username = username;
     console.log(this.postNuevoUsuario);
     this.http.post(this.urlCreate, this.postNuevoUsuario).toPromise().then(response => {
@@ -138,6 +150,26 @@ export class DataService {
     });
   }
 
+  addConcepto(concepto: any) {
+    let url = 'http://pinamar-api.herokuapp.com/clientes/empleados/'+this.employee.id+'/conceptos';
+    console.log(url);
+    this.concepto = concepto;
+    console.log(this.concepto);
+    this.http.post(url, this.concepto).toPromise().then(response => {
+      console.log(response);
+    });
+  }
+
+
+  addNovedad(novedad: any) {
+    let url = 'http://pinamar-api.herokuapp.com/clientes/empleados/'+this.employee.id+'/novedades';
+    console.log(url);
+    this.novedad = novedad;
+    console.log(this.novedad);
+    this.http.post(url, this.novedad).toPromise().then(response => {
+      console.log(response);
+    });
+  }
 
 
 

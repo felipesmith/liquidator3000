@@ -12,6 +12,10 @@ export interface DialogData {
     nombre:string;
     valor: number;
   }] = [];
+  diaMesLiquidacionMensual: number;
+  diaPrimerQuincena: number;
+  diaSegundaQuincena: number;
+  diaSemana: string;
 }
 
 
@@ -33,6 +37,10 @@ export class NavComponent implements OnInit {
         nombre:string;
         valor: number;
       }] = [];
+      diaMesLiquidacionMensual: number;
+      diaPrimerQuincena: number;
+      diaSegundaQuincena: number;
+      diaSemana: string;
 
       constructor(
         private data: DataService,
@@ -83,7 +91,8 @@ export class NavComponent implements OnInit {
       signUp(): void {
                 const dialogRefSignUp = this.dialog.open(popUpSignUp, {
                 width: '400px',
-                data: {username: this.username, password: this.password, name:this.name, type:this.type, concepto:this.concepto}
+                data: {username: this.username, password: this.password, name:this.name, type:this.type, diaMesLiquidacionMensual:this.diaMesLiquidacionMensual,diaPrimerQuincena:this.diaPrimerQuincena,diaSegundaQuincena: this.diaSegundaQuincena,
+              diaSemana:this.diaSemana}
               });
 
               //DESPUES DE CERRARSE GUARDA LA DATA
@@ -92,14 +101,12 @@ export class NavComponent implements OnInit {
                 this.password = result.password;
                 this.name = result.name;
                 this.type = result.type;
-                console.log(this.username, this.password, this.name, this.type, this.concepto);
-                console.log(result.antiguedad, result.presentismo);
-                var concepto2 = {nombre:'Antiguedad', valor:result.antiguedad}
-                this.concepto.push(concepto2);
-                var concepto2 = {nombre:'Presentismo', valor:result.presentismo}
-                this.concepto.push(concepto2);
+                this.diaMesLiquidacionMensual = result.diaMesLiquidacionMensual;
+                this.diaPrimerQuincena= result.diaPrimerQuincena;
+                this.diaSegundaQuincena= result.diaSegundaQuincena;
+                this.diaSemana= result.diaSemana;
                 //HACE EL POST
-                this.data.signUp(this.username, this.password, this.name, this.type, this.concepto);
+                this.data.signUp(this.username, this.password, this.name, this.type,this.diaMesLiquidacionMensual, this.diaPrimerQuincena,this.diaSegundaQuincena,this.diaSemana);
 
               });
         }

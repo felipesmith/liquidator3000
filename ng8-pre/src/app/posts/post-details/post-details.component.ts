@@ -8,6 +8,12 @@ export interface DialogData {
   nombre: string;
   valor:number;
   tipo:string;
+  diasAusentes:number;
+  diasEnfermedad: number;
+  diasVacaciones:number;
+  horasExtra:number;
+  feriados:number;
+  horasTrabajadas:number;
 }
 
 
@@ -21,6 +27,12 @@ export class PostDetailsComponent implements OnInit {
   nombre:string;
   valor: number;
   tipo: string;
+  diasAusentes:number;
+  diasEnfermedad: number;
+  diasVacaciones:number;
+  horasExtra:number;
+  feriados:number;
+  horasTrabajadas:number;
   constructor(
     private route: ActivatedRoute,
     private data: DataService,
@@ -45,6 +57,22 @@ export class PostDetailsComponent implements OnInit {
           console.log(concepto);
           //HACE EL POST
           this.data.addConcepto(concepto);
+
+        });
+  }
+
+  addNovedad(): void {
+          const dialogRefLogin = this.dialog.open(novedad, {
+          width: '400px',
+          data: {diasAusentes: this.diasAusentes, diasEnfermedad: this.diasEnfermedad, diasVacaciones: this.diasVacaciones, horasExtra: this.horasExtra, feriados: this.feriados, horasTrabajadas:this.horasTrabajadas}
+        });
+
+        //DESPUES DE CERRARSE GUARDA LA DATA
+        dialogRefLogin.afterClosed().subscribe(result => {
+          let novedad = {diasAusentes: result.diasAusentes, diasEnfermedad: result.diasEnfermedad, diasVacaciones: result.diasVacaciones, horasExtra: result.horasExtra, feriados: result.feriados, horasTrabajadas:result.horasTrabajadas};
+          console.log(novedad);
+          //HACE EL POST
+          this.data.addNovedad(novedad);
 
         });
   }

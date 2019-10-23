@@ -1,0 +1,25 @@
+<div mat-dialog-content class="contenido-dialog">
+    <p>Nueva Novedad</p>
+    <mat-form-field style="width:100%;">
+        <input matInput [(ngModel)]="data.horasTrabajadas" placeholder="Horas Trabajadas" required>
+    </mat-form-field>
+    <mat-form-field style="width:100%;">
+        <input matInput [(ngModel)]="data.diasAusentes" placeholder="Dias Ausentes" required>
+    </mat-form-field>
+    <mat-form-field style="width:100%;">
+        <input matInput [(ngModel)]="data.diasEnfermedad" placeholder="Dias de Enfermedad" required>
+    </mat-form-field>
+    <mat-form-field style="width:100%;">
+        <input matInput [(ngModel)]="data.diasVacaciones" placeholder="Dias de Vacaciones" required>
+    </mat-form-field>
+    <mat-form-field style="width:100%;">
+        <input matInput [(ngModel)]="data.horasExtra" placeholder="Horas Extra" required>
+    </mat-form-field>
+    <mat-form-field style="width:100%;">
+        <input matInput [(ngModel)]="data.feriados" placeholder="Feriados Trabajados" required>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="true">Cancel</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Confirm</button>
+</div>
