@@ -24,11 +24,13 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatListModule} from '@angular/material/list';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 
 import {MatNativeDateModule} from '@angular/material/core';
 
 import {DialogOverviewExampleDialog} from './posts/create-post/create-post.component';
+//import{TableExpandableRowsExample} from './contact/contact.component'
 import {popUpSignUp} from '../app/nav/nav.component';
 
 //CSS STYLES
@@ -56,6 +58,7 @@ import { PostDetailsComponent, novedad, nuevoConcepto } from './posts/post-detai
     popUpLogin,
     novedad,
     nuevoConcepto,
+    //TableExpandableRowsExample,
     DialogOverviewExampleDialog,
     MystatisticsComponent,
     EventDetailsComponent,
@@ -95,6 +98,6 @@ import { PostDetailsComponent, novedad, nuevoConcepto } from './posts/post-detai
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [NavComponent, popUpSignUp,popUpLogin,novedad, nuevoConcepto, DialogOverviewExampleDialog ],
+  entryComponents: [NavComponent, popUpSignUp,popUpLogin,novedad, nuevoConcepto,/*TableExpandableRowsExample, */DialogOverviewExampleDialog ],
 })
 export class AppModule { }

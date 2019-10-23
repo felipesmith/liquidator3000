@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {animate, state, style, transition, trigger} from '@angular/animations';
+import { DataService }                from '../data.service';
 
 @Component({
   selector: 'app-contact',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private data: DataService
+  ) { }
 
   ngOnInit() {
+  }
+
+  liquidar(){
+    return this.data.facturar();
   }
 
 }

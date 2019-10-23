@@ -1,1 +1,9 @@
-<p>about works!</p>
+<mat-card  class="container">
+    <button mat-flat-button class="buttonLiquidar" color='primary' (click)="liquidar()">Liquidar</button>
+</mat-card>
+<ul *ngIf="data.liquidaciones">
+  <li *ngFor="let liquidacion of data.liquidaciones">
+    <p *ngFor="let recibo of liquidacion.recibos"></p>
+    <p>{{recibo.sueldoNeto}}</p>
+  </li>
+</ul>

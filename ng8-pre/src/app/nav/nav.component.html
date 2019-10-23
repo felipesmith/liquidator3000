@@ -5,10 +5,10 @@
         <nav>
             <ul>
                 <li><a routerLink="/">Inicio</a></li>
-                <li><a routerLink="/events" (click)="getAllEvents()">Eventos</a></li>
+                <!--<li><a routerLink="/events" (click)="getAllEvents()">Eventos</a></li>-->
                 <li><a routerLink="/posts" (click)="getAllPosts()">Empleados</a></li>
-                <li><a routerLink="/about">Nosotros</a></li>
-                <li><a routerLink="/contact">Contacto</a></li>
+                <li><a routerLink="/about">Liquidar</a></li>
+                <li><a routerLink="/contact">Facturar</a></li>
 
                 <li><button mat-flat-button color="primary" class="buttonSignUpLogin" *ngIf="!isLoggedIn()" (click)="signUp()">SIGN UP</button></li>
                 <li><button mat-flat-button class="buttonSignUpLogin" *ngIf="!isLoggedIn()" (click)="login()">LOGIN</button></li>

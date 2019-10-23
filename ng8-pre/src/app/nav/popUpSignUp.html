@@ -26,7 +26,14 @@
           <input matInput [(ngModel)]="data.diaSegundaQuincena" placeholder="Dia de liquidacion segunda quincena">
       </mat-form-field>
       <mat-form-field style="width:100%;">
-          <input matInput [(ngModel)]="data.diaSemana" placeholder="Dia de liquidacion semanal">
+        <mat-label>Dia de liquidacion semanal</mat-label>
+        <select matNativeControl matInput [(ngModel)]="data.diaSemana" required>
+          <option value="Monday">Lunes</option>
+          <option value="Tuesday">Martes</option>
+          <option value="Wednesday">Miercoles</option>
+          <option value="Thursday">Jueves</option>
+          <option value="Friday">Viernes</option>
+        </select>
       </mat-form-field>
       <!--<mat-form-field style="width:100%;">
         <input matInput [(ngModel)]="data.adress" placeholder="Direccion">

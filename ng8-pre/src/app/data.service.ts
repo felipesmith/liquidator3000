@@ -59,9 +59,10 @@ export class DataService {
     }]
 
   };
-
+  liquidaciones:any;
   concepto:any;
   novedad:any;
+  facturas:any;
 
   postNuevoPost ={
     title:'',
@@ -84,7 +85,7 @@ export class DataService {
 
   //**** POSTS *****//
 
-  signUp(username:string, password:string, name:string, type:boolean,diaMesLiquidacionMensual:number, diaPrimerQuincena:number,diaSegundaQuincena:number,diaSemana:sting  ) {
+  signUp(username:string, password:string, name:string, type:boolean,diaMesLiquidacionMensual:number, diaPrimerQuincena:number,diaSegundaQuincena:number,diaSemana:string  ) {
     this.postNuevoUsuario.cuit = username;
     this.postNuevoUsuario.password = password;
     this.postNuevoUsuario.nombre = name;
@@ -168,6 +169,25 @@ export class DataService {
     console.log(this.novedad);
     this.http.post(url, this.novedad).toPromise().then(response => {
       console.log(response);
+    });
+  }
+
+  liquidar(){
+    let url= 'http://pinamar-api.herokuapp.com/clientes/sueldos'
+    console.log(url);
+    this.http.post(url).toPromise().then(response => {
+      console.log(response);
+      this.liquidaciones= response;
+      console.log(this.liquidaciones);
+    });
+
+  }
+
+  facturar() {
+    let obs = this.http.get('');
+    return obs.subscribe((response) => {
+      this.facturas = response;
+      console.log(this.facturas)
     });
   }
 
