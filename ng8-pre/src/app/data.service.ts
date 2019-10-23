@@ -184,7 +184,7 @@ export class DataService {
   }
 
   facturar() {
-    let obs = this.http.get('');
+    let obs = this.http.get('http://pinamar-api.herokuapp.com/clientes/facturas/'+this.username);
     return obs.subscribe((response) => {
       this.facturas = response;
       console.log(this.facturas)

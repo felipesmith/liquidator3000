@@ -16,7 +16,7 @@ export class ContactComponent implements OnInit {
   ngOnInit() {
   }
 
-  liquidar(){
+  facturar(){
     return this.data.facturar();
   }
 
