@@ -39,11 +39,11 @@ export class CreateEmployeeComponent implements OnInit {
   ostipo: string;
   pami:number;
   pamitipo: string;
-  concepto:[{
+  concepto:{
     nombre:string;
     valor: number;
     tipo: string;
-  }] = [];
+  }[] = [];
 
 
 

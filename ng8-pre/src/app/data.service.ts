@@ -32,6 +32,7 @@ export class DataService {
   postNuevoUsuario = {
     cuit: '',
     password: '',
+    cbu:'',
     nombre: '',
     fisico: false,
     diaMesLiquidacionMensual:0,
@@ -86,9 +87,10 @@ export class DataService {
 
   //**** POSTS *****//
 
-  signUp(username:string, password:string, name:string, type:boolean,diaMesLiquidacionMensual:number, diaPrimerQuincena:number,diaSegundaQuincena:number,diaSemana:string  ) {
+  signUp(username:string, password:string, cbu:string, name:string, type:boolean,diaMesLiquidacionMensual:number, diaPrimerQuincena:number,diaSegundaQuincena:number,diaSemana:string  ) {
     this.postNuevoUsuario.cuit = username;
     this.postNuevoUsuario.password = password;
+    this.postNuevoUsuario.cbu = cbu;
     this.postNuevoUsuario.nombre = name;
     this.postNuevoUsuario.fisico = type;
     //this.postNuevoUsuario.concepto = concepto;

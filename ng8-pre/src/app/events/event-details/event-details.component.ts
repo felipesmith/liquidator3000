@@ -18,9 +18,9 @@ export class EventDetailsComponent implements OnInit {
   //Recibe el ID del Evento
   ngOnInit() {
     this.route.params.subscribe( params => this.id = params.id );
-    this.data.getEvent(this.id);
+    //this.data.getEvent(this.id);
   }
 
-  
+
 
 }

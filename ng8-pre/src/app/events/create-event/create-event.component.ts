@@ -75,9 +75,9 @@ export class CreateEventComponent implements OnInit {
   }*/
 
 // FUNCIONES //
-  createEvent() {
+  /*createEvent() {
     console.log(this.title);
     return this.data.createEvent(this.title,this.description, this.location, this.type, this.data.username);
-  }
+  }*/
 
 }

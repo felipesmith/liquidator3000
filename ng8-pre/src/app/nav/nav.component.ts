@@ -8,10 +8,11 @@ export interface DialogData {
   password:string;
   name:string;
   type:boolean;
-  concepto:[{
+  cbu:string;
+/*  concepto:{
     nombre:string;
     valor: number;
-  }] = [];
+  }[] = [];*/
   diaMesLiquidacionMensual: number;
   diaPrimerQuincena: number;
   diaSegundaQuincena: number;
@@ -31,12 +32,13 @@ export class NavComponent implements OnInit {
       //DATOS DEL USUARIO
       username:string;
       password:string;
+      cbu:string;
       name:string;
       type:boolean;
-      concepto:[{
+      concepto:{
         nombre:string;
         valor: number;
-      }] = [];
+      }[] = [];
       diaMesLiquidacionMensual: number;
       diaPrimerQuincena: number;
       diaSegundaQuincena: number;
@@ -91,7 +93,7 @@ export class NavComponent implements OnInit {
       signUp(): void {
                 const dialogRefSignUp = this.dialog.open(popUpSignUp, {
                 width: '400px',
-                data: {username: this.username, password: this.password, name:this.name, type:this.type, diaMesLiquidacionMensual:this.diaMesLiquidacionMensual,diaPrimerQuincena:this.diaPrimerQuincena,diaSegundaQuincena: this.diaSegundaQuincena,
+                data: {username: this.username, password: this.password, cbu:this.cbu, name:this.name, type:this.type, diaMesLiquidacionMensual:this.diaMesLiquidacionMensual,diaPrimerQuincena:this.diaPrimerQuincena,diaSegundaQuincena: this.diaSegundaQuincena,
               diaSemana:this.diaSemana}
               });
 
@@ -99,6 +101,7 @@ export class NavComponent implements OnInit {
               dialogRefSignUp.afterClosed().subscribe(result => {
                 this.username = result.username;
                 this.password = result.password;
+                this.cbu= result.cbu;
                 this.name = result.name;
                 this.type = result.type;
                 this.diaMesLiquidacionMensual = result.diaMesLiquidacionMensual;
@@ -106,7 +109,7 @@ export class NavComponent implements OnInit {
                 this.diaSegundaQuincena= result.diaSegundaQuincena;
                 this.diaSemana= result.diaSemana;
                 //HACE EL POST
-                this.data.signUp(this.username, this.password, this.name, this.type,this.diaMesLiquidacionMensual, this.diaPrimerQuincena,this.diaSegundaQuincena,this.diaSemana);
+                this.data.signUp(this.username, this.password, this.cbu,this.name, this.type,this.diaMesLiquidacionMensual, this.diaPrimerQuincena,this.diaSegundaQuincena,this.diaSemana);
 
               });
         }
