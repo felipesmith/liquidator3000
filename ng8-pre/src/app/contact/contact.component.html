@@ -1,5 +1,33 @@
-<mat-card  class="container">
+<mat-card class="container">
+    <button mat-flat-button class="buttonFacturar" color='primary' (click)="facturar()">Ver Mis Facturas</button>
+</mat-card>
 
-    <button mat-flat-button class="buttonLiquidar" color='primary' (click)="facturar()">Facturas</button>
+<mat-card class="detalle">
+    <p class="title">Detalle de Facturas</p>
+    <mat-divider class="firstDivider"></mat-divider>
+    <div class="" *ngIf="data.facturas">
+        <mat-card class="headers">
+            <ul>
+                <li class="headerLi">
+                    <p class="tableHeader">Numero de Factura</p>
+                </li>
+                <li class="headerLi">
+                    <p class="tableHeader">Fecha</p>
+                </li>
+                <li class="headerLi">
+                    <p class="tableHeader">Total</p>
+                </li>
+            </ul>
+        </mat-card>
+        <div *ngFor="let factura of data.facturas">
 
+            <mat-card class="client">
+                <ul class="data">
+                    <li>{{factura.id}}</li>
+                    <li>{{factura.fecha | date:'dd/MM/yyyy'}}</li>
+                    <li><b>{{factura.total}}</b></li>
+                </ul>
+            </mat-card>
+        </div>
+    </div>
 </mat-card>

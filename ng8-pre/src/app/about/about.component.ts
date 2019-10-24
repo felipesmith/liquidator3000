@@ -24,4 +24,8 @@ export class AboutComponent implements OnInit {
     return this.data.callBanco();
   }
 
+  transferir(){
+    return this.data.transferir();
+  }
+
 }
