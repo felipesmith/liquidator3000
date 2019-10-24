@@ -35,6 +35,7 @@ export class CreateEmployeeComponent implements OnInit {
   presentismotipo: string;
   jubilacion:number;
   jubilaciontipo: string;
+  diasContratados: number;
   os:number;
   ostipo: string;
   pami:number;
@@ -67,7 +68,6 @@ export class CreateEmployeeComponent implements OnInit {
 
 // FUNCIONES //
   createEmployee() {
-    console.log(this.billing, this.payroll);
     var concepto2 = {nombre:'Antiguedad', valor:this.antiguedad, tipo:this.antiguedadtipo};
     this.concepto.push(concepto2);
     var concepto2 = {nombre:'Presentismo', valor:this.presentismo, tipo:this.presentismotipo};
@@ -79,7 +79,8 @@ export class CreateEmployeeComponent implements OnInit {
     var concepto2 = {nombre:'PAMI', valor:this.pami, tipo:this.pamitipo};
     this.concepto.push(concepto2);
     console.log(this.concepto);
-    return this.data.createEmployee(this.dni, this.cuit,this.cbu, this.name, this.adress, this.puesto,this.date, this.billing, this.payroll,this.salary, this.concepto);
+    console.log(this.cuit);
+    return this.data.createEmployee(this.dni, this.cuit,this.cbu, this.name, this.adress, this.puesto,this.date, this.billing, this.payroll,this.salary, this.concepto, this.diasContratados);
   }
 
 }

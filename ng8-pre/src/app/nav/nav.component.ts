@@ -112,10 +112,8 @@ export class NavComponent implements OnInit {
               //DESPUES DE CERRARSE GUARDA LA DATA
               dialogRefSignUp.afterClosed().subscribe(result => {
                 console.log(result);
-                console.log(result.form);
-                console.log(result.form.get('username').value);
-                this.username = result.form.get('password').value;
-                this.password = result.form.get('username').value;
+                this.username = result.form.get('username').value;
+                this.password = result.form.get('password').value;
                 this.cbu= result.form.get('cbu').value;
                 this.name = result.form.get('name').value;
                 this.type = result.form.get('type').value;
@@ -123,6 +121,8 @@ export class NavComponent implements OnInit {
                 this.diaPrimerQuincena= result.form.get('diaPrimerQuincena').value;
                 this.diaSegundaQuincena= result.form.get('diaSegundaQuincena').value;
                 this.diaSemana= result.form.get('diaSemana').value;
+                console.log(this.username);
+                console.log(result.form.get('username').value);
                 //HACE EL POST
                 this.data.signUp(this.username, this.password, this.cbu,this.name, this.type,this.diaMesLiquidacionMensual, this.diaPrimerQuincena,this.diaSegundaQuincena,this.diaSemana);
 

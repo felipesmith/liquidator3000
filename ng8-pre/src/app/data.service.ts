@@ -54,6 +54,7 @@ export class DataService {
     tipoLiquidacion: '',
     tipo: '',
     monto: 0,
+    diasContratados: 0,
     conceptos: [{
       nombre:'',
       valor: 0,
@@ -65,6 +66,7 @@ export class DataService {
   concepto:any;
   novedad:any;
   facturas:any;
+  informes:any;
 
   postNuevoPost ={
     title:'',
@@ -98,7 +100,7 @@ export class DataService {
     this.postNuevoUsuario.diaPrimerQuincena = diaPrimerQuincena;
     this.postNuevoUsuario.diaSegundaQuincena = diaSegundaQuincena;
     this.postNuevoUsuario.diaSemana = diaSemana;
-    this.username = username;
+    //this.username = username;
     console.log(this.postNuevoUsuario);
     this.http.post(this.urlCreate, this.postNuevoUsuario).toPromise().then(response => {
       console.log(response)
@@ -121,9 +123,9 @@ export class DataService {
     });
   }
 
-  createEmployee(dni:string, cbu:string, cuit:string, nombre:string, direccion: string,  puesto:string, fechaIngreso:Date, tipoLiquidacion:string, tipo:string, monto:number, conceptos: Array<any> ) {
+  createEmployee(dni:string, cbu:string, cuit:string, nombre:string, direccion: string,  puesto:string, fechaIngreso:Date, tipoLiquidacion:string, tipo:string, monto:number, conceptos: Array<any>, diasContratados: number ) {
 
-    let url = 'http://pinamar-api.herokuapp.com/clientes/empleados/'+tipo+'/'+monto+'/'+this.username;
+    let url = 'http://pinamar-api.herokuapp.com/clientes/empleados/'+tipo+'/'+monto+'/'+this.username+'/'+diasContratados;
     console.log(conceptos);
     this.postNuevoEvento.dni = dni;
     this.postNuevoEvento.cbu = cbu;
@@ -136,7 +138,8 @@ export class DataService {
     this.postNuevoEvento.tipo = tipo;
     this.postNuevoEvento.conceptos = conceptos;
     this.postNuevoEvento.monto = monto;
-    this.postNuevoEvento.cuit = this.username;
+    this.postNuevoEvento.diasContratados = diasContratados;
+    this.postNuevoEvento.cuit = cuit;
     console.log(this.postNuevoEvento);
     this.http.post(url, this.postNuevoEvento).toPromise().then(response => {
       console.log(response);
@@ -179,10 +182,17 @@ export class DataService {
   liquidar(){
     let url= 'http://pinamar-api.herokuapp.com/clientes/sueldos'
     console.log(url);
-    this.http.post(url,'').toPromise().then(response => {
+    this.http.post(url,'').toPromise().
+    then(response => {
       console.log(response);
       this.liquidaciones= response;
       console.log(this.liquidaciones);
+    }).then(result  => {
+      console.log('Entro al them');
+      this.callBanco();
+    })
+    .catch(error =>{
+      console.error(error);
     });
 
   }
@@ -193,6 +203,15 @@ export class DataService {
       this.facturas = response;
       console.log(this.facturas)
     });
+  }
+
+  callBanco(){
+    let obs = this.http.get('http://pinamar-api.herokuapp.com/clientes/informes');
+    return obs.subscribe((response) => {
+      this.informes = response;
+      console.log(this.informes)
+    });
+
   }
 
 
