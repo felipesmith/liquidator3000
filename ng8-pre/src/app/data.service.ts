@@ -44,6 +44,7 @@ export class DataService {
   postNuevoEvento ={
     dni:'',
     cbu:'',
+    cuitEmpleado:'',
     nombre:'',
     direccion:'',
     puesto:'',
@@ -118,12 +119,13 @@ export class DataService {
     });
   }
 
-  createEmployee(dni:string, cbu:string, nombre:string, direccion: string,  puesto:string, fechaIngreso:Date, tipoLiquidacion:string, tipo:string, monto:number, conceptos: Array<any> ) {
+  createEmployee(dni:string, cbu:string, cuit:string, nombre:string, direccion: string,  puesto:string, fechaIngreso:Date, tipoLiquidacion:string, tipo:string, monto:number, conceptos: Array<any> ) {
 
     let url = 'http://pinamar-api.herokuapp.com/clientes/empleados/'+tipo+'/'+monto+'/'+this.username;
     console.log(conceptos);
     this.postNuevoEvento.dni = dni;
     this.postNuevoEvento.cbu = cbu;
+    this.postNuevoEvento.cuitEmpleado= cuit;
     this.postNuevoEvento.nombre = nombre;
     this.postNuevoEvento.direccion = direccion;
     this.postNuevoEvento.puesto = puesto;

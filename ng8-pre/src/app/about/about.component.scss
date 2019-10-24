@@ -26,14 +26,25 @@ ul{
 }
 
 li{
-  margin:auto;
+  margin: 0 auto;
+  padding-right: 5%;
 }
-
 .tableHeader{
   margin: 0 auto;
+  padding-left: 5%;
   font-weight: bold;
+}
+
+.headerLi{
+  padding-left: 5%
 }
 
 .data{
   padding: 0;
+}
+
+
+
+.client, .headers{
+  margin-top: 5px;
 }

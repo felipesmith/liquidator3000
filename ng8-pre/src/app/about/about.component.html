@@ -16,15 +16,15 @@
 
 <div class="" *ngIf="data.liquidaciones">
   <div  *ngFor="let liquidacion of data.liquidaciones">
-    <mat-card>
+    <mat-card class="headers">
       <ul>
-        <li><p class="tableHeader">Cliente</p></li>
-        <li><p class="tableHeader">Tipo</p></li>
-        <li><p class="tableHeader">Fecha</p></li>
-        <li><p class="tableHeader">Total</p></li>
+        <li class="headerLi"><p class="tableHeader">Cliente</p></li>
+        <li class="headerLi"><p class="tableHeader">Tipo</p></li>
+        <li class="headerLi"><p class="tableHeader">Fecha</p></li>
+        <li class="headerLi"><p class="tableHeader">Total</p></li>
       </ul>
     </mat-card>
-    <mat-card>
+    <mat-card class="client">
       <ul class="data">
         <li>{{liquidacion.id}}</li>
         <li>{{liquidacion.tipo}}</li>

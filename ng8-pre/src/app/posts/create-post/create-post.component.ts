@@ -20,6 +20,7 @@ export class CreateEmployeeComponent implements OnInit {
   tipo         = new FormControl('', [Validators.required]);*/
 
   dni:string;
+  cuit:string;
   cbu: string;
   name:string;
   adress:string;
@@ -78,7 +79,7 @@ export class CreateEmployeeComponent implements OnInit {
     var concepto2 = {nombre:'PAMI', valor:this.pami, tipo:this.pamitipo};
     this.concepto.push(concepto2);
     console.log(this.concepto);
-    return this.data.createEmployee(this.dni,this.cbu, this.name, this.adress, this.puesto,this.date, this.billing, this.payroll,this.salary, this.concepto);
+    return this.data.createEmployee(this.dni, this.cuit,this.cbu, this.name, this.adress, this.puesto,this.date, this.billing, this.payroll,this.salary, this.concepto);
   }
 
 }
