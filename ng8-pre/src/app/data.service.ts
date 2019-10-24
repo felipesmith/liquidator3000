@@ -189,12 +189,12 @@ export class DataService {
       console.log(this.liquidaciones);
     }).then(result  => {
       console.log('Entro al then');
-      this.callBanco();
+      return this.callBanco();
       console.log(this.informes);
-    }).then(result  => {
+    }).then((informes:any)  => {
       console.log('Entro al segundo then');
-      console.log(result);
-      this.transferir();
+      console.log(informes);
+      this.transferir(informes);
     })
     .catch(error =>{
       console.error(error);
@@ -215,16 +215,22 @@ export class DataService {
     return obs.subscribe((response) => {
       this.informes = response;
       console.log(this.informes)
+      return this.informes;
     });
   }
 
     
-  transferir(){
+  transferir(informes:any[]){
     let url = 'https://secret-mesa-48951.herokuapp.com/Banco/trasferir';
-    this.http.post(url, this.informes).toPromise().then(response => {
-      console.log(response);
+    this.informes.forEach(element => {
+      this.http.post(url, this.informes).toPromise().then(response => {
+        console.log(response);
+      });
+  
     });
-
+    /*this.http.post(url, this.informes).toPromise().then(response => {
+      console.log(response);
+    });*/
   }
 
 
