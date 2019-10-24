@@ -2,8 +2,10 @@ import { Component, OnInit, Inject }          from '@angular/core';
 //El DataService se utiliza para centralizar los datos, se utiliza para enviar y recibir datos (Ej: api)
 import { DataService }                from '../data.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {FormControl, Validators, FormGroup} from "@angular/forms";
 
 export interface DialogData {
+  form: FormGroup;
   username:string;
   password:string;
   name:string;
@@ -26,7 +28,7 @@ export interface DialogData {
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
-
+      form: FormGroup;
       appTitle = 'Liquidator 3000';
 
       //DATOS DEL USUARIO
@@ -50,6 +52,17 @@ export class NavComponent implements OnInit {
       ) { }
 
       ngOnInit() {
+        this.form = new FormGroup({
+          username: new FormControl( null, [Validators.required]),
+          password: new FormControl( null, [Validators.required]),
+          cbu: new FormControl( null, [Validators.required]),
+          name: new FormControl( null, [Validators.required]),
+          type: new FormControl( null, [Validators.required]),
+          diaMesLiquidacionMensual: new FormControl( null, [Validators.required]),
+          diaPrimerQuincena: new FormControl( null, [Validators.required]),
+          diaSegundaQuincena: new FormControl( null, [Validators.required]),
+          diaSemana: new FormControl( null, [Validators.required])
+        })
       }
 
       login(): void {
@@ -92,22 +105,24 @@ export class NavComponent implements OnInit {
       //ESTO ABRE EL POP UP
       signUp(): void {
                 const dialogRefSignUp = this.dialog.open(popUpSignUp, {
-                width: '400px',
-                data: {username: this.username, password: this.password, cbu:this.cbu, name:this.name, type:this.type, diaMesLiquidacionMensual:this.diaMesLiquidacionMensual,diaPrimerQuincena:this.diaPrimerQuincena,diaSegundaQuincena: this.diaSegundaQuincena,
-              diaSemana:this.diaSemana}
+                width: '500px',
+                data: {form: this.form}
               });
 
               //DESPUES DE CERRARSE GUARDA LA DATA
               dialogRefSignUp.afterClosed().subscribe(result => {
-                this.username = result.username;
-                this.password = result.password;
-                this.cbu= result.cbu;
-                this.name = result.name;
-                this.type = result.type;
-                this.diaMesLiquidacionMensual = result.diaMesLiquidacionMensual;
-                this.diaPrimerQuincena= result.diaPrimerQuincena;
-                this.diaSegundaQuincena= result.diaSegundaQuincena;
-                this.diaSemana= result.diaSemana;
+                console.log(result);
+                console.log(result.form);
+                console.log(result.form.get('username').value);
+                this.username = result.form.get('password').value;
+                this.password = result.form.get('username').value;
+                this.cbu= result.form.get('cbu').value;
+                this.name = result.form.get('name').value;
+                this.type = result.form.get('type').value;
+                this.diaMesLiquidacionMensual = result.form.get('diaMesLiquidacionMensual').value;
+                this.diaPrimerQuincena= result.form.get('diaPrimerQuincena').value;
+                this.diaSegundaQuincena= result.form.get('diaSegundaQuincena').value;
+                this.diaSemana= result.form.get('diaSemana').value;
                 //HACE EL POST
                 this.data.signUp(this.username, this.password, this.cbu,this.name, this.type,this.diaMesLiquidacionMensual, this.diaPrimerQuincena,this.diaSegundaQuincena,this.diaSemana);
 
@@ -123,9 +138,13 @@ selector: 'popUpSignUp',
 templateUrl: 'popUpSignUp.html',
 })
 export class popUpSignUp {
+    form:FormGroup;
     constructor(
+
       public dialogRef: MatDialogRef<popUpSignUp>,
-      @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+      @Inject(MAT_DIALOG_DATA) public data: DialogData) {
+        this.form = data.form;
+      }
 }
 
 //POP UP DEL LOGIN
