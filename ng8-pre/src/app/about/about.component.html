@@ -26,7 +26,7 @@
     </mat-card>
     <mat-card class="client">
       <ul class="data">
-        <li>{{liquidacion.id}}</li>
+        <li>{{data.clientName}}</li>
         <li>{{liquidacion.tipo}}</li>
         <li>{{liquidacion.fecha | date:'dd/MM/yyyy'}}</li>
         <li><b>{{liquidacion.total}}</b></li>
@@ -34,7 +34,7 @@
     </mat-card>
     <br>
     <br>
-    <table>
+    <!--<table>
       <thead>
         <tr>
           <td>EMPLEADO</td>
@@ -44,12 +44,12 @@
       </thead>
       <tbody>
         <tr *ngFor="let recibo of liquidacion.recibos">
-          <td>empleado</td>
+          <td>{{data.Clientname}}  </td>
           <td>{{recibo.id}}</td>
           <td>{{recibo.sueldoNeto}}</td>
         </tr>
       </tbody>
-    </table>
+    </table>-->
   </div>
 </div>
 </mat-card>

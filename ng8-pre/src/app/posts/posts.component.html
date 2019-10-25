@@ -1,11 +1,21 @@
 <button mat-flat-button color="warn" class="buttonCrearEventoPost" routerLink="/createPost">Crear Empleado</button>
 
 <mat-grid-list cols="4" rowHeight="400px" class="gridEventoPost">
-    <mat-grid-tile *ngFor="let post of this.data.posts">
-        <mat-card class="example-card">
-          <mat-list-item>{{post.dni}}</mat-list-item>
-          <mat-divider></mat-divider>
-          <button class='boton-verPost' mat-flat-button color="primary" *ngIf="isLoggedIn()" [routerLink]="['/posts/',post.id]">Cargar Novedades</button>
-        </mat-card>
-    </mat-grid-tile>
+  <mat-grid-tile *ngFor="let post of this.data.posts">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>{{post.nombre}}</mat-card-title>
+        <mat-card-subtitle> Puesto: {{post.puesto}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list-item> CUIL: {{post.cuit}}</mat-list-item>
+        <mat-list-item> Tipo de Liquidacion: {{post.tipoLiquidacion}}</mat-list-item>
+        <!--<mat-list-item> Sueldo: {{post.sueldoBase | currency}}</mat-list-item>-->
+      </mat-card-content>
+      <!-- <mat-list-item>Nombre y Apellido: + {{post.nombre}}</mat-list-item> -->
+      <mat-divider></mat-divider>
+      <button class='boton-verPost' mat-flat-button color="primary" *ngIf="isLoggedIn()"
+        [routerLink]="['/posts/',post.id]">Cargar Novedades</button>
+    </mat-card>
+  </mat-grid-tile>
 </mat-grid-list>

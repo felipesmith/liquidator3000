@@ -20,7 +20,7 @@ export class DataService {
   //DATOS DE USUARIO (SINGLETON)
   isloggin: any;
   username: string;
-
+  clientName: string;
   //GUARDO LAS LISTAS DE LAS CONSULTAS A LA BASE
   events: any;
   user: any;
@@ -118,6 +118,8 @@ export class DataService {
     return obs.subscribe((response) => {
       console.log(response);
       this.isloggin = response;
+      this.clientName = response.nombre;
+      console.log(this.clientName);
       this.username = username;
       console.log(this.isloggin)
     });
@@ -222,10 +224,17 @@ export class DataService {
 
     
   transferir(informes:any[]){
-    let url = 'https://secret-mesa-48951.herokuapp.com/Banco/trasferir';
-    console.log(this.informes +'boke');
-    this.informes.forEach(element => {
+    let url = 'https://secret-mesa-48951.herokuapp.com/Banco/pagar/varios';
+    let urlCobro = 'https://secret-mesa-48951.herokuapp.com/Banco/cobrar/varios';
+    console.log(this.informes.cobro);
+    this.http.post(urlCobro, this.informes.cobro).toPromise().then(response => {
+      console.log(response);
+    });
+
+    console.log(this.informes.pago);
+    this.informes.pago.forEach(element => {
       this.http.post(url, element).toPromise().then(response => {
+        console.log(element);
         console.log(response);
         console.log('comollegamoaca');
       });
