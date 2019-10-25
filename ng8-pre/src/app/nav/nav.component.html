@@ -13,7 +13,7 @@
                 <li><button mat-flat-button color="primary" class="buttonSignUpLogin" *ngIf="!isLoggedIn()" (click)="signUp()">SIGN UP</button></li>
                 <li><button mat-flat-button class="buttonSignUpLogin" *ngIf="!isLoggedIn()" (click)="login()">LOGIN</button></li>
                 <li><button mat-flat-button class="buttonSignUpLogin" *ngIf="isLoggedIn()" (click)="logOut()" routerLink="/">LOG OUT</button></li>
-                <li><button mat-flat-button class="buttonSignUpLogin" *ngIf="isLoggedIn()" (click)="myStatistics()" routerLink="/statistics">Mis Estadísticas</button></li>
+                <li><button mat-flat-button class="buttonSignUpLogin" *ngIf="isLoggedIn()" (click)="myStatistics()" routerLink="/statistics">Mis Liquidaciones</button></li>
             </ul>
         </nav>
     </div>

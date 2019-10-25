@@ -1,10 +1,42 @@
-<mat-list class="container">
-    <div *ngFor="let user of this.data.user">
-        <mat-list-item> Nombre:   {{ user.name }} </mat-list-item>
-        <mat-list-item> Apellido: {{ user.surname }} </mat-list-item>
-        <mat-list-item> Género:   {{ user.gender }} </mat-list-item>
-        <mat-list-item> Edad:     {{ user.age }} </mat-list-item>
-        <mat-list-item> Mail:     {{ user.username }} </mat-list-item>
-        <mat-list-item> Locación: {{ user.location }} </mat-list-item>
+<mat-card class="container">
+    <button mat-flat-button class="buttonMisLiquidaciones" color='primary' (click)="misLiquidaciones()">Ver Mis
+        Liquidaciones</button>
+</mat-card>
+
+<mat-card class="detalle">
+    <p class="title">Detalle de Liquidaciones</p>
+    <mat-divider class="firstDivider"></mat-divider>
+    <div class="" *ngIf="data.liquidaciones">
+        <mat-card class="headers">
+            <ul>
+                <li class="headerLi">
+                    <p class="tableHeader">Tipo de Liquidacion</p>
+                </li>
+                <li class="headerLi">
+                    <p class="tableHeader">Fecha</p>
+                </li>
+                <li class="headerLi">
+                    <p class="tableHeader">Estado de Facturación</p>
+                </li>
+                <li class="headerLi">
+                    <p class="tableHeader">Total</p>
+                </li>
+            </ul>
+        </mat-card>
+        <div *ngFor="let liquidacion of data.liquidaciones">
+
+            <mat-card class="client">
+                <ul class="data">
+                    <li>{{liquidacion.tipo}}</li>
+                    <li>{{liquidacion.fecha | date:'dd/MM/yyyy'}}</li>
+                    <li>
+                        <div *ngIf="liquidacion.facturada ; else elseBlock"> Facturada
+                        </div>
+                        <ng-template #elseBlock>No Facturada</ng-template>
+                    </li>
+                    <li><b>{{liquidacion.total}}</b></li>
+                </ul>
+            </mat-card>
+        </div>
     </div>
-</mat-list>
+</mat-card>

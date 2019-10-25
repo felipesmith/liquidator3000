@@ -18,6 +18,9 @@ export class MystatisticsComponent implements OnInit {
   ngOnInit() {
     
   }
-  
+  misLiquidaciones(){
+    return this.data.misLiquidaciones();
+  }
+
 
 }

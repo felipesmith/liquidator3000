@@ -190,10 +190,11 @@ export class DataService {
     }).then(result  => {
       console.log('Entro al then');
       return this.callBanco();
-      console.log(this.informes);
     }).then((informes:any)  => {
       console.log('Entro al segundo then');
       console.log(informes);
+      console.log(this.informes+'xd');
+      console.log('Entro a tu vieja');
       this.transferir(informes);
     })
     .catch(error =>{
@@ -211,10 +212,10 @@ export class DataService {
   }
 
   callBanco(){
-    let obs = this.http.get('http://pinamar-api.herokuapp.com/clientes/informes');
-    return obs.subscribe((response) => {
+    return this.http.get('http://pinamar-api.herokuapp.com/clientes/informes').toPromise().then((response) => {
       this.informes = response;
-      console.log(this.informes)
+      console.log(this.informes);
+      console.log('lo de arriba son los informes');
       return this.informes;
     });
   }
@@ -222,15 +223,26 @@ export class DataService {
     
   transferir(informes:any[]){
     let url = 'https://secret-mesa-48951.herokuapp.com/Banco/trasferir';
+    console.log(this.informes +'boke');
     this.informes.forEach(element => {
-      this.http.post(url, this.informes).toPromise().then(response => {
+      this.http.post(url, element).toPromise().then(response => {
         console.log(response);
+        console.log('comollegamoaca');
       });
   
     });
     /*this.http.post(url, this.informes).toPromise().then(response => {
       console.log(response);
     });*/
+  }
+
+
+    misLiquidaciones() {
+    let obs = this.http.get('http://pinamar-api.herokuapp.com/clientes/liquidaciones-cliente/' + this.username);
+    return obs.subscribe((response) => {
+      this.liquidaciones = response;
+      console.log(this.liquidaciones)
+    });
   }
 
 

@@ -20,9 +20,5 @@ export class AboutComponent implements OnInit {
     return this.data.liquidar();
   }
 
-  callBanco(){
-    return this.data.callBanco();
-  }
-
 
 }
